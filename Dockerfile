@@ -7,9 +7,10 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
-# To run:
+# To run locally:
 # (1) docker build .
 # (2) docker run -p 8080:80 [id]
 
